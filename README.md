@@ -1,6 +1,6 @@
 # nuagebec-docker-lap
 
-Docker running apache and php
+Docker running apache and php aka "linux apache php"
 
 docker run -d -p 80:80 -p 443:443  nuagebec/lap
 
