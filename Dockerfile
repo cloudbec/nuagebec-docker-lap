@@ -2,11 +2,22 @@ FROM nuagebec/ubuntu:latest
 MAINTAINER David Tremblay <david@nuagebec.ca>
 
 #install php and apache
+
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-    apt-get install -y apache2 php5 php5-gd php5-mysql php5-mcrypt php5-memcache php5-curl && \
-    apt-get install -y wget curl   && \
-    apt-get clean && \
+    apt-get -yq install \
+        curl \
+        apache2 \
+        libapache2-mod-php5 \
+        php5-mysql \
+        php5-gd \
+        php5-curl \
+        php-pear \
+        php-mail \
+        mysql-client \
+        php-apc && \
     rm -rf /var/lib/apt/lists/*
+
 
 ADD supervisor_apache.conf /etc/supervisor/conf.d/apache.conf 
 ADD ./config/php.ini /etc/php5/apache2/conf.d/php.ini
