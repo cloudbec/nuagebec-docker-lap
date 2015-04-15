@@ -18,6 +18,7 @@ RUN apt-get update && \
         php-apc && \
     rm -rf /var/lib/apt/lists/*
 
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 ADD supervisor_apache.conf /etc/supervisor/conf.d/apache.conf 
 ADD ./config/php.ini /etc/php5/apache2/conf.d/php.ini
