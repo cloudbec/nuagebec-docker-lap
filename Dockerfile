@@ -6,7 +6,7 @@ MAINTAINER David Tremblay <david@nuagebec.ca>
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get -yq install \
-        sendmail \
+        postfix \
         curl \
         apache2 \
         libapache2-mod-php5 \
