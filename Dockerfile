@@ -14,6 +14,7 @@ RUN apt-get update && \
         php5-gd \
         php5-curl \
         php-pear \
+	php5-mcrypt \
         php-mail \
         mysql-client \
         php-apc && \
