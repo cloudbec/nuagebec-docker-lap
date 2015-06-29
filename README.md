@@ -26,6 +26,7 @@ and the following package
 - php-mail
 - mysql-client
 - php-apc
+- postfix
 
 Usage
 -----
