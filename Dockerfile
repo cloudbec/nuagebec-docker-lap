@@ -10,6 +10,7 @@ RUN apt-get update && apt-get upgrade -y &&\
         curl \
         apache2 \
         libapache2-mod-php5 \
+        libapache2-mod-security2 \
         php5-mysql \
         php5-gd \
         php5-curl \
@@ -26,13 +27,26 @@ ADD supervisor_apache.conf /etc/supervisor/conf.d/apache.conf
 ADD ./config/php.ini /etc/php5/apache2/conf.d/php.ini
 ADD ./config/000-default.conf /etc/apache2/sites-available/000-default.conf
 
+RUN mv /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
+
+
 #Activate php5-mcrypt
 RUN php5enmod mcrypt
+
+#Activate opcache
+RUN php5enmod opcache
 
 #Activate mod_rewrite
 RUN a2enmod rewrite
 
+#activate mod_expires
+RUN a2enmod expires
+
+
 RUN echo "<?php phpinfo();" > /var/www/html/index.php
+
+# Add VOLUMEs to allow sharing logs and backup
+VOLUME  ["/var/log/apache2", "/var/www/html"]
 
 
 EXPOSE 80 443
