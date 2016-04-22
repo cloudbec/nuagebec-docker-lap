@@ -43,6 +43,9 @@ RUN a2enmod rewrite
 #activate mod_expires
 RUN a2enmod expires
 
+# activate intl
+RUN php5enmod intl
+
 
 RUN echo "<?php phpinfo();" > /var/www/html/index.php
 
