@@ -34,7 +34,7 @@ RUN mv /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurit
 #Activate php5-mcrypt
 RUN php5enmod mcrypt
 
-#Activate opcache
+#Activate opcache parameters are in ../config/php.ini
 RUN php5enmod opcache
 
 #Activate mod_rewrite
