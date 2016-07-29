@@ -14,19 +14,40 @@ It include some tools like :
 - ca-certificates
 
 
-and the following package
+and the following packages
 
 - curl
 - apache2
 - libapache2-mod-php5
+- libapache2-mod-security2
 - php5-mysql
 - php5-gd
 - php5-curl
 - php-pear
+- php5-mcrypt
 - php-mail
-- mysql-client
+- mysql-clienti
+- php5-intl
 - php-apc
-- postfix
+
+the following module are activated :
+
+- mcrypt
+- opcache
+- rewrite
+- expires
+- intl
+
+Volumes
+-------
+
+The following volume are exposed :
+
+- /var/log/apache2
+- /var/www/html
+
+
+
 
 Usage
 -----
