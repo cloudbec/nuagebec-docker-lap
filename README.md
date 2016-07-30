@@ -14,7 +14,7 @@ It include some tools like :
 - ca-certificates
 
 
-and the following packages
+And, the following packages
 
 - curl
 - apache2
@@ -30,7 +30,7 @@ and the following packages
 - php5-intl
 - php-apc
 
-the following module are activated :
+The following httpd modules are activated :
 
 - mcrypt
 - opcache
@@ -41,7 +41,7 @@ the following module are activated :
 Volumes
 -------
 
-The following volume are exposed :
+The following volumes are exposed :
 
 - /var/log/apache2
 - /var/www/html
