@@ -19,10 +19,10 @@ and the following package
 
 - curl
 - apache2
-- libapache2-mod-php5
-- php5-mysql
-- php5-gd
-- php5-curl
+- libapache2-mod-php
+- php-mysql
+- php-gd
+- php-curl
 - php-pear
 - php-mail
 - mysql-client
