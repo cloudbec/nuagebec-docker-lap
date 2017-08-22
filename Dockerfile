@@ -31,7 +31,7 @@ ADD ./config/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN mv /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
 
 
-#Activate headers obviously
+#Activate headers
 RUN a2enmod headers
 
 #Activate php5-mcrypt
