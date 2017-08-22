@@ -25,7 +25,7 @@ RUN apt-get update && apt-get upgrade -y &&\
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 ADD supervisor_apache.conf /etc/supervisor/conf.d/apache.conf 
-ADD ./config/php.ini /etc/php5/apache2/conf.d/php.ini
+ADD ./config/php.ini /etc/php/7.0/apache2/conf.d/php.ini
 ADD ./config/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN mv /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
