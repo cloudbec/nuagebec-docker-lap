@@ -19,6 +19,7 @@ RUN apt-get update && apt-get upgrade -y &&\
         php-mail \
         mysql-client \
         php-intl \
+	php-zip \
 	php-mbstring && \
     rm -rf /var/lib/apt/lists/*
 
