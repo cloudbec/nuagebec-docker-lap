@@ -44,6 +44,9 @@ RUN a2enmod rewrite
 #activate mod_expires
 RUN a2enmod expires
 
+#activate mod_headers
+RUN a2enmod headers
+
 # activate intl
 RUN phpenmod intl
 
