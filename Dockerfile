@@ -19,6 +19,7 @@ RUN apt-get update && apt-get upgrade -y &&\
         php-mail \
         mysql-client \
         php-intl \
+	php-zip \
 	php-mbstring && \
     rm -rf /var/lib/apt/lists/*
 
@@ -42,6 +43,9 @@ RUN a2enmod rewrite
 
 #activate mod_expires
 RUN a2enmod expires
+
+#activate mod_headers
+RUN a2enmod headers
 
 # activate intl
 RUN phpenmod intl
