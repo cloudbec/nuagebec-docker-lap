@@ -1,4 +1,4 @@
-FROM nuagebec/ubuntu:16.04
+FROM nuagebec/ubuntu:18.04
 MAINTAINER David Tremblay <david@nuagebec.ca>
 
 #install php and apache
@@ -15,7 +15,6 @@ RUN apt-get update && apt-get upgrade -y &&\
         php-gd \
         php-curl \
         php-pear \
-	php-mcrypt \
         php-mail \
         mysql-client \
         php-intl \
@@ -26,14 +25,12 @@ RUN apt-get update && apt-get upgrade -y &&\
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 ADD supervisor_apache.conf /etc/supervisor/conf.d/apache.conf 
-ADD ./config/php.ini /etc/php/7.0/apache2/conf.d/php.ini
+ADD ./config/php.ini /etc/php/7.2/apache2/conf.d/php.ini
 ADD ./config/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN mv /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
 
 
-#Activate php-mcrypt
-RUN phpenmod mcrypt
 
 #Activate opcache parameters are in ../config/php.ini
 RUN phpenmod opcache
