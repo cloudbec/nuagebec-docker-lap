@@ -51,6 +51,9 @@ RUN a2enmod headers
 RUN phpenmod intl
 
 
+RUN ln -sf /dev/stdout /var/log/apache2/access.log   && ln -sf /dev/stderr /var/log/apache2/error.log
+
+
 RUN echo "<?php phpinfo();" > /var/www/html/index.php
 
 # Add VOLUMEs to allow sharing logs and backup
