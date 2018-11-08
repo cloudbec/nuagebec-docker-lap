@@ -48,6 +48,8 @@ RUN a2enmod headers
 RUN phpenmod intl
 
 
+
+
 RUN echo "<?php phpinfo();" > /var/www/html/index.php
 
 # Add VOLUMEs to allow sharing logs and backup
