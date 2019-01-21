@@ -20,7 +20,8 @@ RUN apt-get update && apt-get upgrade -y &&\
         mysql-client \
         php-intl \
 	php-zip \
-	php-mbstring && \
+	php-mbstring \
+        iputils-ping && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
