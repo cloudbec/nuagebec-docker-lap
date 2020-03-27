@@ -2,6 +2,9 @@
 
 ## Branch 18.04 with all the goodness
 
+
+DONT USE IT YET
+
 Simple always updated Ubuntu docker images with SSH access and supervisord. This docker running apache and php AKA lap.
 
 It include some tools like :
@@ -36,7 +39,7 @@ To create the image `nuagebec/lap` with Ubuntu,
 execute the following commands on the nuagebec-ubuntu master branch:
 
         git checkout master
-        docker build -t nuagebec/lap:18.04 .
+        docker build -t nuagebec/lap:18.04-http2 .
 
 Running nuagebec/lap
 --------------------
@@ -44,7 +47,7 @@ Running nuagebec/lap
 To run a container from the image you created earlier binding it to port 2222 in
 all interfaces, execute:
 
-        docker run -d -p 0.0.0.0:2222:22 nuagebec/lap:18.04
+        docker run -d -p 0.0.0.0:2222:22 nuagebec/lap:18.04-http2
 
 The first time that you run your container, a random password will be generated
 for user `root`. To get the password, check the logs of the container by running:
@@ -81,7 +84,7 @@ Deactivating ssh server
 you may not like to have a running ssh server use SSH_SERVER=false to prevent starting it. Default is true
 
 
-        docker run -e SSH_SERVER=false nuagebec/lap:18.04
+        docker run -e SSH_SERVER=false nuagebec/lap:18.04-http2
 
 
 Specific configuration

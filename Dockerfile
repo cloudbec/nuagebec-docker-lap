@@ -9,7 +9,7 @@ RUN apt-get update && apt-get upgrade -y &&\
 	rsync \
         curl \
         apache2 \
-        libapache2-mod-php \
+        php7.2-fpm \
         libapache2-mod-security2 \
         php-mysql \
         php-gd \
@@ -24,13 +24,26 @@ RUN apt-get update && apt-get upgrade -y &&\
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
+
+
+
 ADD supervisor_apache.conf /etc/supervisor/conf.d/apache.conf 
 ADD ./config/php.ini /etc/php/7.2/apache2/conf.d/php.ini
 ADD ./config/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN mv /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
 
+#php-fpm configuration
+RUN a2enmod proxy_fcgi setenvif
+RUN a2enconf php7.2-fpm
 
+
+#configuration php-fpm
+
+RUN a2enmod http2
 
 #Activate opcache parameters are in ../config/php.ini
 RUN phpenmod opcache
